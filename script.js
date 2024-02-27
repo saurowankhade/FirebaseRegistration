@@ -14,3 +14,31 @@ eyeBtn.addEventListener('click',()=>{
         checkEye = true;
     }
 });
+
+
+// on click login btn
+
+const login_btn = document.querySelector('.login_btn');
+const outterDiv = document.querySelector('.outerDiv');
+const cross = document.querySelector('.closed');
+login_btn.addEventListener('click',()=>{
+    outterDiv.classList.add('opacityStart');
+    outterDiv.style.visibility = 'visible';
+
+    outterDiv.addEventListener('animationend',()=>{
+        outterDiv.classList.remove('opacityStart');
+    });
+});
+
+cross.addEventListener('click',()=>{
+    outterDiv.classList.add('opacityEnd');
+    // 
+
+    setTimeout(()=>{
+        outterDiv.style.visibility = 'hidden';
+    },1900);
+
+    outterDiv.addEventListener('animationend',()=>{
+        outterDiv.classList.remove('opacityEnd');
+    });
+});

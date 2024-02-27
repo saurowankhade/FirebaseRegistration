@@ -173,3 +173,29 @@ h4{
     color: black;
     cursor: pointer;
  }
+
+ .opacityStart{
+    animation: opacityStart 2s linear 1;
+ }
+
+ .opacityEnd{
+    animation: opacityEnd 2s linear 1;
+ }
+
+ @keyframes opacityStart {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+ }
+
+ @keyframes opacityEnd {
+    0%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+ }
