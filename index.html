@@ -5,19 +5,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
-    
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
     
-    <header>
+    <main style="z-index: 0;">
         <nav>
-            <ul class="li">Home</ul>
-            <ul class="li">About</ul>
-            <ul class="li">Contact</ul>
-            <ul class="li">Login</ul>
+            
+            <ul>
+                <span class="cmp_name">KorKa</span>
+                <span class="list">
+                <li>Home</li>
+                <li>About</li>
+                <li>Service</li>
+                <li>Contact</li>
+                </span>
+                <span class="login_btn">Login</span>
+            </ul>
+            
         </nav>
-    </header>
+
+        <div class="outerDiv">
+            <div class="innerDiv">
+                <span><i class="fas fa-times closed"></i></span>
+                <h4>Login</h4>
+                <form>
+                    <div> <span><i class="far fa-envelope"></i></span><input type="email"  id="userEmail" placeholder="Enter you email" ></div>
+                    <div>
+                        <span><i class="fa-solid fa-lock"></i></span>
+                        <input type="password"  id="password" placeholder="Enter your password">
+                        <span>
+                            <i class="fa-solid fa-eye-slash eye"></i>
+                        </span>
+                    </div>
+                    <div class="forgot_div">
+                        <p>Forgot Password</p>
+                    </div>
+                    <div class="btn">
+                        <input type="button" value="Login">
+                    </div>
+                    <div class="signup_text">
+                        <p>Don`t have an account?  <span class="signup_btn">&nbsp;Signup</span></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    
     
 
     <script src="script.js"></script>
