@@ -79,7 +79,7 @@ ul li{
 
  .innerDiv{
     background-color: white;
-    height: 350px;
+    /* height: auto; */
     width: 300px;
     border-radius: 20px;
     box-shadow: 10px 10px 10px 10px rgba(105, 103, 103, 0.172);
@@ -115,8 +115,12 @@ h4{
     text-align: end;
     font-size: 12px;
     width: 100%;
-    color: rgba(0, 0, 255, 0.824);
+    color: rgba(0, 0, 255, 0.80);
     cursor: pointer;
+ }
+
+ .forgot_div p:hover{
+    color: blue;
  }
  .forgot_div{
     border: none;
@@ -146,19 +150,26 @@ h4{
     cursor: pointer;
  }
 
- .signup_text{
+ .signup_text,.login_text{
     font-size: 13px;
     text-align: center;
      margin-top: 20px;
      border: none;
  }
- .signup_text p{
+ .signup_text p,.login_text p{
     width: 100%;
+    color: rgba(0, 0, 0, 0.80);
  }
 
- .signup_text p span{
-    color: blue;
+ .signup_text p span,
+ .login_text p span{
+    color: rgba(0, 0, 255, 0.80);
     cursor: pointer;
+ }
+
+ .signup_text p span:hover,
+ .login_text p span:hover{
+    color: rgb(0, 0, 255);
  }
 
  .closed{
@@ -199,3 +210,4 @@ h4{
         opacity: 0;
     }
  }
+
