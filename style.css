@@ -66,6 +66,8 @@ ul li{
    background-color: aliceblue;
    color: aqua;
    cursor: pointer;
+   
+   transition: all 2s;
  }
 
  .outerDiv{
