@@ -1,16 +1,12 @@
-
-
         // Import the functions you need from the SDKs you need
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
         import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-analytics.js";
         
         import { getDatabase, set, ref } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-database.js";
-        import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
-        // TODO: Add SDKs for Firebase products that you want to use
-        // https://firebase.google.com/docs/web/setup#available-libraries
-        
-        // Your web app's Firebase configuration
-        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+         import { getAuth, createUserWithEmailAndPassword ,signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
+       
+       
+
         const firebaseConfig = {
           apiKey: "AIzaSyBskySUeEu2wWBn0DEoq-onBB45b7aa6-I",
           authDomain: "hackathon-62a08.firebaseapp.com",
@@ -94,14 +90,14 @@ function setInnerLoginPage(){
             <span><i class="fa-solid fa-lock" ></i></span>
             <input type="password"  id="password" placeholder="Enter your password" required>
             <span>
-                <i class="fa-solid fa-eye-slash eye" onclick="passwordVisible('eye','password')"></i>
+                <i class="fa-solid fa-eye-slash eye" onclick=""></i>
             </span>
         </div>
         <div class="forgot_div">
             <p>Forgot Password</p>
         </div>
         <div class="btn">
-            <input type="button" value="Login" onclick="loginClick()">
+            <input type="button" value="Login">
         </div>
         <div class="signup_text">
             <p>Don&#8217;t have an account?  <span class="signup_btn" >&nbsp;Signup</span></p>
@@ -111,7 +107,13 @@ function setInnerLoginPage(){
 
     closedDilogBox();
 
+    document.querySelector('.btn').addEventListener('click',loginClick);
+
     document.querySelector('.signup_text').addEventListener('click',signupBtn);
+
+    (document.querySelector('.eye')).addEventListener('click',()=>{
+        passwordVisible('eye','password')
+    });
 }
 
 // on click closed btn 
@@ -146,7 +148,7 @@ function signupBtn(){
             <span><i class="fa-solid fa-lock"></i></span>
             <input type="password"  id="createPass" placeholder="Create password" required>
             <span>
-                <i class="fa-solid fa-eye-slash eye createeye" onclick=" passwordVisible('createeye','createPass')"></i>
+                <i class="fa-solid fa-eye-slash eye createeye"></i>
             </span>
         </div>
         <div>
@@ -170,9 +172,15 @@ function signupBtn(){
     closedDilogBox();
 
     // onclick handle
-    document.querySelector('.login_text').addEventListener('click',setInnerLoginPage);
     document.querySelector('#signUp').addEventListener('click',CreateNewAccount);
-    document.querySelector('.confirEye').addEventListener('click',passwordVisible('confirEye','comfirmPass'));
+    document.querySelector('.login_text').addEventListener('click',setInnerLoginPage);
+    (document.querySelector('.confirEye')).addEventListener('click',()=>{
+        passwordVisible('confirEye','comfirmPass');
+    });
+    let creEye = document.querySelector('.createeye');
+    creEye.addEventListener('click',()=>{
+        passwordVisible('createeye','createPass');
+    });
 
 }
 
@@ -186,7 +194,14 @@ function loginClick(){
     } else if(uPass.length < 7){
         console.log('password less than 7!');
     } else{
-        console.log(`UserEmail : ${uEmail} nad UserPass : ${uPass}`);
+        // login
+        signInWithEmailAndPassword(auth, uEmail,uPass).then((credentials)=>{
+            // registertion sucess 
+            console.log(credentials);
+        }).catch((error)=>{
+            console.log(error.code);
+            console.log(error.message);
+        });
     }
 }
 
@@ -210,7 +225,13 @@ function CreateNewAccount(){
         console.log('Password not match');
     } else{
         // account create !!
-        console.log(app)
+        console.log('Register!!');
+        createUserWithEmailAndPassword(auth, uEmail,crePass).then((credentials)=>{
+            // registertion sucess 
+            console.log(credentials);
+        }).catch((error)=>{
+            console.log(error.code);
+            console.log(error.message);
+        });
     }
 }
-
