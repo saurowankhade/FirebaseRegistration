@@ -64,10 +64,9 @@ ul li{
 
  .login_btn:hover , .login_btn:focus{
    background-color: aliceblue;
-   color: aqua;
    cursor: pointer;
    
-   transition: all 2s;
+   transition: all 0.4s;
  }
 
  .outerDiv{
