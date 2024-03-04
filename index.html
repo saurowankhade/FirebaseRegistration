@@ -25,35 +25,31 @@
             
         </nav>
 
-        <div class="outerDiv" style="visibility: hidden;">
-            <div class="innerDiv">
-                <span><i class="fas fa-times closed"></i></span>
-                <h4>Login</h4>
-                <form>
-                    <div> <span><i class="fa-solid fa-envelope"></i></span><input type="email"  id="userEmail" placeholder="Enter you email"  ></div>
-                    <div>
-                        <span><i class="fa-solid fa-lock"></i></span>
-                        <input type="password"  id="password" placeholder="Enter your password">
-                        <span>
-                            <i class="fa-solid fa-eye-slash eye"></i>
-                        </span>
-                    </div>
-
-                    <div class="forgot_div">
-                        <p>Forgot Password</p>
-                    </div>
-                    <div class="btn">
-                        <input type="button" value="Login">
-                    </div>
-                    <div class="signup_text">
-                        <p>Don`t have an account?  <span class="signup_btn">&nbsp;Signup</span></p>
-                    </div>
-                </form>
+        <div class="outerDiv" style="visibility: visible;">
+            <div class="innerDiv" >
+               
             </div>
         </div>
     </main>
 
     <script src="script.js" type="module"></script>
+
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
+    <script>
+        let i = 0;
+        let txt = 'Login Scucessful'; /* The text */
+        let speed = 100; /* The speed/duration of the effect in milliseconds */
+        function typeWriter() {
+            if (i < txt.length) {
+                document.getElementById("h4").innerHTML += txt.charAt(i);
+                i++;
+                setTimeout(typeWriter, speed);
+            }
+        }
+
+typeWriter();
+    </script>
 
 </body>
 </html>

@@ -198,6 +198,7 @@ function loginClick(){
         signInWithEmailAndPassword(auth, uEmail,uPass).then((credentials)=>{
             // registertion sucess 
             console.log(credentials);
+            doneShow('Login Successful !!');
         }).catch((error)=>{
             console.log(error.code);
             console.log(error.message);
@@ -229,9 +230,38 @@ function CreateNewAccount(){
         createUserWithEmailAndPassword(auth, uEmail,crePass).then((credentials)=>{
             // registertion sucess 
             console.log(credentials);
+
+            doneShow('Registration Successful !!');
+
         }).catch((error)=>{
             console.log(error.code);
             console.log(error.message);
         });
     }
+}
+
+
+function doneShow(data){
+    let innerDiv = document.querySelector('.innerDiv');
+    innerDiv.innerHTML = ` 
+    <span><i class="fas fa-times closed"></i></span>
+    <h4 id="h4"></h4>
+
+    <lottie-player src="https://lottie.host/e1bf689a-3ba0-447d-b8c5-953e5f6e0db5/Y8xoTXjSRA.json" background="transparent"   speed="1.2"  style="width: 300px; height: 300px;" autoplay></lottie-player>
+    `;
+    closedDilogBox();
+
+    let i = 0;
+        let txt = `${data}`; /* The text */
+        let speed = 100; /* The speed/duration of the effect in milliseconds */
+        function typeWriter() {
+            if (i < txt.length) {
+                document.getElementById("h4").innerHTML += txt.charAt(i);
+                i++;
+                setTimeout(typeWriter, speed);
+            }
+        }
+
+typeWriter();
+
 }
