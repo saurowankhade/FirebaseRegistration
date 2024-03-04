@@ -36,20 +36,5 @@
 
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 
-    <script>
-        let i = 0;
-        let txt = 'Login Scucessful'; /* The text */
-        let speed = 100; /* The speed/duration of the effect in milliseconds */
-        function typeWriter() {
-            if (i < txt.length) {
-                document.getElementById("h4").innerHTML += txt.charAt(i);
-                i++;
-                setTimeout(typeWriter, speed);
-            }
-        }
-
-typeWriter();
-    </script>
-
 </body>
 </html>
